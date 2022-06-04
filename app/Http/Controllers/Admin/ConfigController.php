@@ -32,11 +32,8 @@ class ConfigController extends Controller
     {
         $client = new \ConfigCat\ConfigCatClient("lEXaCHSev0CKhaT19oJ0Gw/rwbcJQI--kixBUXZNErGKw");
         $isMyAwesomeFeatureEnabled = $client->getValue("isMyFirstFeatureEnabled", false);
-        if(is_bool($isMyAwesomeFeatureEnabled) && $isMyAwesomeFeatureEnabled) {
-           dd("YES SWITCH IS ON");
-        } else {
-           dd("SWITCH IS OFF");
-        }
+        return view('config',compact('isMyAwesomeFeatureEnabled'));
+        
     }
 
     public function isPOCEnabled(Request $request)

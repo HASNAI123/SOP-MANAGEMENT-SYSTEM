@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ConfigCat Laravel Sample</title>
+    <title>ConfigCat </title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
         html, body {
@@ -19,19 +19,27 @@
 </head>
 <body>
     <div class="wrapper">
-        <h2>Simple feature flag</h2>
-        <button id="checkAwesome">Check if Awesome Feature is turned ON</button>
-        <p>Value returned from ConfigCat: <b><span id="isAwesomeEnabled"></span></b></p>
-        <br/>
-        <h2>Feature with Targeting</h2>
-        <p> Set up to be enabled only for users with an e-mail address that contains "@example.com"</p>
-        <label for="userName">Email:</label><input type="text" id="userName" value="configcat@example.com" />
-        <button id="checkProofOfConcept">Check POC feature with Email</button>
-        <p>Value returned from ConfigCat: <b><span id="isPOCEnabled"></span></b></p>
-        <br />
-        <h2>ConfigCat Dashboard</h2>
-        <p>A screen-shot to see how the ConfigCat Dashboard looks like for this Sample Project.</p>
-        <img src="{{ asset('/images/mgmt_console.png') }}"/>
+
+      @if($isMyAwesomeFeatureEnabled == 1)
+
+        <h1>SWITCH IS ON</h1>
+        <img height="400px" width="600px" src="{{ asset('/img/dashboard.png') }}"/>
+
+        @endif
+
+        @if($isMyAwesomeFeatureEnabled == 0)
+
+        <h1>SWITCH IS OFF</h1>
+       
+
+        @endif
+       
+       
+
+
+        
+        
+        
     </div>
 </body>
 
