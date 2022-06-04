@@ -55,6 +55,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
   //Folders
      Route::resource('folders', 'FoldersController');
 
+     Route::get('config', 'ConfigController@isAwesomeEnabled');
+
 
     
 });

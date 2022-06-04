@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-route::get('/api/v1/customers','APICotroller@getUsers')->name('api.users.index');
+
+Route::get('/config/awesome', 'ConfigController@isAwesomeEnabled');
+
+Route::get('/config/poc', 'ConfigController@isPOCEnabled');
