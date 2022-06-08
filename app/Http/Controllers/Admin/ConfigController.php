@@ -30,9 +30,18 @@ class ConfigController extends Controller
      */
     public function isAwesomeEnabled()
     {
-        $client = new \ConfigCat\ConfigCatClient("lEXaCHSev0CKhaT19oJ0Gw/rwbcJQI--kixBUXZNErGKw");
-        $isMyAwesomeFeatureEnabled = $client->getValue("isMyFirstFeatureEnabled", false);
-        return view('config',compact('isMyAwesomeFeatureEnabled'));
+
+        
+        $client = new \ConfigCat\ConfigCatClient("lEXaCHSev0CKhaT19oJ0Gw/rwbcJQI--kixBUXZNErGKw", [ // <-- This is the actual SDK Key for your 'Test Environment' environment.
+            \ConfigCat\ClientOptions::LOG_LEVEL => \ConfigCat\Log\LogLevel::INFO, // <-- Set the log level to INFO to track how your feature flags were evaluated. When moving to production, you can remove this line to avoid too detailed logging.
+            \ConfigCat\ClientOptions::CACHE => new \ConfigCat\Cache\LaravelCache(\Illuminate\Support\Facades\Cache::store()),
+            \ConfigCat\ClientOptions::CACHE_REFRESH_INTERVAL => 5,
+         ]);
+
+        $isMyFirstFeatureEnabled = $client->getValue("isMyFirstFeatureEnabled", false);
+       
+        
+         return view('config',compact('isMyFirstFeatureEnabled'));
         
     }
 

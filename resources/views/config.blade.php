@@ -20,14 +20,14 @@
 <body>
     <div class="wrapper">
 
-      @if($isMyAwesomeFeatureEnabled == 1)
+      @if($isMyFirstFeatureEnabled == 1)
 
         <h1>SWITCH IS ON</h1>
         <img height="400px" width="600px" src="{{ asset('/img/dashboard.png') }}"/>
 
         @endif
 
-        @if($isMyAwesomeFeatureEnabled == 0)
+        @if($isMyFirstFeatureEnabled == 0)
 
         <h1>SWITCH IS OFF</h1>
        

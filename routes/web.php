@@ -63,7 +63,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
 
 
-
 Route::get('/admin/sops/create/generate', function()
 {
     return 'Hello World';
